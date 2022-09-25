@@ -15,7 +15,9 @@ isset($_POST["insert_item"])
 };
 
 
-
+// Class to doitem/
+class TodoItem{
+}
 // Post todo item method.
 
 function insert_todo_item($to_do_item)
