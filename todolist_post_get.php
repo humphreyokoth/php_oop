@@ -31,9 +31,6 @@ class TodoItem
     $this->$title = $title;
     $this->$date_added = $date_added;
   }
-  public function save_todo()
-  {
-  }
 }
 // Post todo item method.
 
@@ -43,7 +40,7 @@ function insert_todo_item($to_do_item)
   $conn = $dbobject->OpenCon();
   //$conn = OpenCon();
   // Date declaring.
-  $date = date('Y-m-d H:i:s');
+  $date = date('Y-m-d');
   // Inserting into table todolist from input form.
   $sql = "INSERT INTO to_do_list_items(`title`,`date_added`) VALUES ('$to_do_item','$date')";
   // Return results.
