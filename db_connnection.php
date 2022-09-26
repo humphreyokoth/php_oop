@@ -3,12 +3,10 @@
 // Class Database connection.
 class DatabaseConnection{
 
-    public $dbhost ="localhost";
-    public$dbuser = "root" ;
-    public$dbpass = "";
-    public$db = "wp_course";
-  
-
+    // public $dbhost ="localhost";
+    // public$dbuser = "root" ;
+    // public$dbpass = "";
+    // public$db = "wp_course";
 
     public function __construct(){
          $this-> OpenCon(); 
