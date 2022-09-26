@@ -22,7 +22,5 @@ class DatabaseConnection{
        
         return $conn;
     }
-        // function CloseCon($conn){
-        // //$conn->close();
-        // }
+
 }
