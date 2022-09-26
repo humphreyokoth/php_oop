@@ -2,8 +2,7 @@
 // importing db connection.
 include("./db_connnection.php");
 
-$dbobject = new DatabaseConnection;
-$conn = $dbobject ->OpenCon();
+
 //Posting to db query with insert method..
 if (isset($_POST["item"]) && 
 isset($_POST["insert_item"])
@@ -16,7 +15,23 @@ isset($_POST["insert_item"])
 
 
 // Class to doitem/
-class TodoItem{
+class TodoItem {
+
+ public $id;
+ public $title;
+ public $date_added;
+
+  public function __construct($id,$title, $date_added)
+  {
+      $this-> $id =$id;
+      $this-> $title =$title;
+      $this->$date_added = $date_added;
+  }
+  public function save_todo(){
+      
+  }
+
+
 }
 // Post todo item method.
 
