@@ -13,7 +13,9 @@ if (
 ) {
   insert_todo_item($_POST["item"]);
 } elseif (isset($_POST["edited"])) {
+  update_todo_item($_POST["edited"]);
 } elseif (isset($_POST["deleted"])) {
+  delete_todo_item($_POST["deleted"]);
 };
 
 
@@ -111,7 +113,39 @@ function get_todo_list()
   }
 }
 
+function update_todo_item($id){
+  $dbobject = new DatabaseConnection;
+  $conn = $dbobject->OpenCon();
 
+  // Inserting into table todolist from input form.
+  $sql = "UPDATE `to_do_list_items` (`title`,`date_added`) VALUES ('$id')";
+
+  // Return results.
+  $result = $conn->query($sql);
+
+  // error_log(print_r($conn) , 3, "./php_error.log");
+  if ($result) {
+  
+    echo ("successfully updated");
+  } else {
+
+  
+    echo ("Not successful");
+  }
+  
+}
+function delete_todo_item($id){
+  $dbobject = new DatabaseConnection;
+  $conn = $dbobject->OpenCon();
+  $sql = "DELETE FROM `to_do_list_items` WHERE id=$id ";
+  $result = $conn->query($sql);
+
+	if($result){
+    echo "successfully deleted";
+	}else{
+    echo "Unable to delete";
+	}
+}
 
 
 ?>
