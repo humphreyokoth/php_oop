@@ -2,6 +2,8 @@
 // importing db connection.
 include("./db_connnection.php");
 
+$dbobject = new DatabaseConnection;
+$conn = $dbobject ->OpenCon();
 
 //Posting to db query with insert method..
 if (isset($_POST["item"]) && 
