@@ -71,10 +71,13 @@ class ManageTodoList{
   // Get todo item by id from DB.
   public function get_last_todo_item($conn)
   {
-    $get_added_item = "SELECT * FROM to_do_list_items ORDER BY  id  DESC limit 1";
-    $result = $conn->query($get_added_item);
-    $row = $result->fetch_assoc();
-    return $row;
+    $get_added_item = "SELECT * FROM to_do_list_items ";
+  $get_item =[];
+  $result = $conn->query($get_added_item);
+  while ($row = $result->fetch_assoc()) {
+    $get_item = $row;
+ }
+  return $get_item;
   }
   // Get todo item by title from DB.
   // function get_todo_item_by_title($conn,$to_do_item){
