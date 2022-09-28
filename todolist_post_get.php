@@ -14,9 +14,11 @@ $update_todoObject =new ManageTodoList();
 $delete_todoObject =new ManageTodoList();
 //Posting to db query with insert method.
 if (isset($_POST["item"])) {
-  error_log($_POST["item"], 3, "./php_error.log");
+  $dbobject = new DatabaseConnection;
+  $conn = $dbobject->OpenCon();
+  //error_log($_POST["item"], 3, "./php_error.log");
   $insert_todoObject->insert_todo_item($_POST["item"]);
-  //error_log("$insert_todoObject", 3, "./php_error.log");
+  error_log("$insert_todoObject", 3, "./php_error.log");
 
 } elseif(isset($_REQUEST["Retrieved"])){
   $get_todoObject->get_todo_list();
@@ -97,6 +99,8 @@ class ManageTodoList{
   public function get_todo_list()
   {
     $dbobject = new DatabaseConnection;
+    $update_todoObject =new ManageTodoList();
+   $delete_todoObject =new ManageTodoList();
     $conn = $dbobject->OpenCon();
     $sql = "SELECT * FROM to_do_list_items";
   
@@ -113,9 +117,9 @@ class ManageTodoList{
         <li>
           <input type="checkbox" name="checkbox" id="list-1" />
           <span><?php echo  $row["date_added"] ?></span>
-          <i class="fa-solid fa-trash-can deleteIcon"></i>
+          <i class="fa-solid fa-trash-can deleteIcon"><?php $update_todoObject   ?></i>
   
-          <i class="fa-solid fa-pencil editIcon "></i>
+          <i class="fa-solid fa-pencil editIcon "><?php  $delete_todoObject ?></i>
   
           <label class="label-2"> <?php echo  $row["title"] .  "<br>"; ?></label>
   
