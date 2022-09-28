@@ -5,10 +5,9 @@ include("./db_connnection.php");
 $dbobject = new DatabaseConnection;
 $conn = $dbobject->OpenCon();
 
-//Posting to db query with insert method..
-if (
-  isset($_POST["item"]) &&
-  isset($_POST["insert_item"])
+//Posting to db query with insert method.
+
+if (isset($_POST["item"])
 
 ) {
   insert_todo_item($_POST["item"]);
@@ -33,13 +32,10 @@ class TodoItem
     $this->$title = $title;
     $this->$date_added = $date_added;
   }
-  public function get_last_todo_item(){
-    
-  }
+ 
 }
 // Post todo item method.
 class ManageTodoList{
-
 
 
   public function insert_todo_item($to_do_item)
@@ -52,11 +48,11 @@ class ManageTodoList{
     // Inserting into table todolist from input form.
     $sql = "INSERT INTO to_do_list_items(`title`,`date_added`) VALUES ('$to_do_item','$date')";
     // Return results.
-    $result = $conn->query($sql);
+    $result = $this->$conn->query($sql);
   
     // error_log(print_r($conn) , 3, "./php_error.log");
     if ($result) {
-      $row = get_last_todo_item($conn);
+      $row = $this->get_last_todo_item($conn);
       $response["message"] =  'success';
       $response['data'] =  $row;
       echo json_encode($response);
@@ -73,7 +69,7 @@ class ManageTodoList{
   {
     $get_added_item = "SELECT * FROM to_do_list_items ";
   $get_item =[];
-  $result = $conn->query($get_added_item);
+  $result = $this->$conn->query($get_added_item);
   while ($row = $result->fetch_assoc()) {
     $get_item = $row;
  }
@@ -94,7 +90,7 @@ class ManageTodoList{
     $conn = $dbobject->OpenCon();
     $sql = "SELECT * FROM to_do_list_items";
   
-    $result = $conn->query($sql);
+    $result =$this->$conn->query($sql);
   
   
     if ($result->num_rows > 0) {
@@ -130,7 +126,7 @@ class ManageTodoList{
     $sql = "UPDATE `to_do_list_items` (`title`,`date_added`) VALUES ('$id')";
   
     // Return results.
-    $result = $conn->query($sql);
+    $result = $this->$conn->query($sql);
   
     // error_log(print_r($conn) , 3, "./php_error.log");
     if ($result) {
@@ -146,8 +142,8 @@ class ManageTodoList{
   public function delete_todo_item($id){
     $dbobject = new DatabaseConnection;
     $conn = $dbobject->OpenCon();
-    $sql = "DELETE FROM `to_do_list_items` WHERE id=$id ";
-    $result = $conn->query($sql);
+    $sql = "DELETE FROM `to_do_list_items` WHERE id =$id ";
+    $result =$this->$conn->query($sql);
   
     if($result){
       echo "successfully deleted";
