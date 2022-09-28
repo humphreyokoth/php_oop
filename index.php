@@ -14,10 +14,7 @@
 <body>
     <?php
    
-    include("./todolist_post_get.php");
-    
-    
-   
+    include("./todolist_post_get.php");   
     ?>
 
     <div class="container">
@@ -52,7 +49,7 @@
 
                <ul class="list-li  task-list"   id="task-list">
                 <?php
-                  get_todo_list();
+                $get_todoObject;
                 ?>
                   
                 </ul>

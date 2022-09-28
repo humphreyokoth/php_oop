@@ -5,16 +5,26 @@ include("./db_connnection.php");
 $dbobject = new DatabaseConnection;
 $conn = $dbobject->OpenCon();
 
+
+
+//New instance of objects.
+$insert_todoObject = new ManageTodoList();
+$get_todoObject = new ManageTodoList();
+$update_todoObject =new ManageTodoList();
+$delete_todoObject =new ManageTodoList();
 //Posting to db query with insert method.
+if (isset($_POST["item"])) {
+  error_log($_POST["item"], 3, "./php_error.log");
+  $insert_todoObject->insert_todo_item($_POST["item"]);
+  //error_log("$insert_todoObject", 3, "./php_error.log");
 
-if (isset($_POST["item"])
+} elseif(isset($_REQUEST["Retrieved"])){
+  $get_todoObject->get_todo_list();
+}elseif (isset($_GET["edited"])) {
+  $update_todoObject->update_todo_item($_POST["edited"]);
 
-) {
-  insert_todo_item($_POST["item"]);
-} elseif (isset($_POST["edited"])) {
-  update_todo_item($_POST["edited"]);
 } elseif (isset($_POST["deleted"])) {
-  delete_todo_item($_POST["deleted"]);
+  $delete_todoObject->delete_todo_item($_POST["deleted"]);
 };
 
 
