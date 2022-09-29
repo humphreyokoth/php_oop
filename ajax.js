@@ -13,7 +13,7 @@ $(document).ready(function(){
     }).then(
         
         function(response){
-            console.log("data");
+            //console.log(response);
               response = JSON.parse(response);
             // Check item added to DB
             console.log( response);

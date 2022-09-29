@@ -1,1 +1,91 @@
-adding dataadding dataable to post my data
+mysqli_result Object
+(
+    [current_field] => 0
+    [field_count] => 3
+    [lengths] => 
+    [num_rows] => 3
+    [type] => 0
+)
+Array
+(
+    [0] => 6
+    [1] => testingiin g
+    [2] => 2022-09-29
+)
+Array
+(
+    [message] => success
+    [data] => Array
+        (
+           [0] => 10 
+            [1] => backend
+            [2] => 2022-09-29
+        )
+
+)
+Array
+(
+    [message] => success
+    [data] => Array
+        (
+            [0] => 18
+            [1] => todo list front erro
+            [2] => 2022-09-29
+        )
+
+)
+Array
+(
+    [message] => success
+    [data] => Array
+        (
+            [0] => 19
+            [1] => json objevt
+            [2] => 2022-09-29
+        )
+
+)
+Array
+(
+    [message] => success
+    [data] => Array
+        (
+            [id] => 20
+            [title] => formating data
+            [date_added] => 2022-09-29
+        )
+
+)
+Array
+(
+    [message] => success
+    [data] => Array
+        (
+            [id] => 23
+            [title] => todolist items are being added using ajax
+            [date_added] => 2022-09-29
+        )
+
+)
+Array
+(
+    [message] => success
+    [data] => Array
+        (
+            [id] => 24
+            [title] => todolist items are being added using oop
+            [date_added] => 2022-09-29
+        )
+
+)
+Array
+(
+    [message] => success
+    [data] => Array
+        (
+            [id] => 25
+            [title] => todolist items working
+            [date_added] => 2022-09-29
+        )
+
+)
