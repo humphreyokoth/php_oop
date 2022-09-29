@@ -29,20 +29,20 @@ if (isset($_POST["item"])) {
 
 
 // Class to doitem/
-class TodoItem
-{
+// class TodoItem
+// {
 
-  public $id;
-  public $title;
-  public $date_added;
+//   public $id;
+//   public $title;
+//   public $date_added;
 
-  public function __construct($id, $title, $date_added)
-  {
-    $this->$id = $id;
-    $this->$title = $title;
-    $this->$date_added = $date_added;
-  }
-}
+//   public function __construct($id, $title, $date_added)
+//   {
+//     $this->$id = $id;
+//     $this->$title = $title;
+//     $this->$date_added = $date_added;
+//   }
+// }
 // Post todo item method.
 class ManageTodoList
 {
@@ -120,7 +120,7 @@ class ManageTodoList
         <li>
           <input type="checkbox" name="checkbox" id="list-1" />
           <span><?php echo  $row["date_added"] ?></span>
-          <i class="fa-solid fa-trash-can deleteIcon"><?php $update_todoObject   ?></i>
+          <i class="fa-solid fa-trash-can deleteIcon" ><?php $update_todoObject   ?></i>
 
           <i class="fa-solid fa-pencil editIcon "><?php $delete_todoObject ?></i>
 
