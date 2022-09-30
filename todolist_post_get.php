@@ -16,7 +16,7 @@ $delete_todoObject = new ManageTodoList();
 if (isset($_POST["item"])) {
   $dbobject = new DatabaseConnection;
   $conn = $dbobject->OpenCon();
-  //error_log($_POST["item"], 3, "./php_error.log");
+  
   $insert_todoObject->insert_todo_item($_POST["item"]);
   //error_log("$insert_todoObject", 3, "./php_error.log");
 } elseif (isset($_REQUEST["Retrieved"])) {
@@ -72,8 +72,8 @@ class ManageTodoList
       $response            = [];
       $response["message"] =  'success';
       $response['data']    =  $item;
-      
-   error_log(print_r( $response,true) , 3, "./php_error.log");
+
+      error_log(print_r($response, true), 3, "./php_error.log");
       echo json_encode($response);
     } else {
 
@@ -111,16 +111,15 @@ class ManageTodoList
 
 
     if ($result->num_rows > 0) {
-      // $array1 = array();
       // output data of each row
       while ($row = $result->fetch_assoc()) {
-        // array_push($array1,$row["title"], $row["date_added"] );
+      
 ?>
 
         <li>
           <input type="checkbox" name="checkbox" id="list-1" />
           <span><?php echo  $row["date_added"] ?></span>
-          <i class="fa-solid fa-trash-can deleteIcon" ><?php $update_todoObject   ?></i>
+          <i class="fa-solid fa-trash-can deleteIcon"><?php $update_todoObject   ?></i>
 
           <i class="fa-solid fa-pencil editIcon "><?php $delete_todoObject ?></i>
 
