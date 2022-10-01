@@ -40,7 +40,7 @@ if (isset($_POST["item"])) {
 //   {
 //     $this->$id = $id;
 //     $this->$title = $title;
-//     $this->$date_added = $date_added;
+//     
 //   }
 // }
 // Post todo item method.
