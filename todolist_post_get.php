@@ -18,7 +18,7 @@ if (isset($_POST["item"])) {
   $conn = $dbobject->OpenCon();
   
   $insert_todoObject->insert_todo_item($_POST["item"]);
-  //error_log("$insert_todoObject", 3, "./php_error.log");
+  
 } elseif (isset($_REQUEST["Retrieved"])) {
   $get_todoObject->get_todo_list();
 } elseif (isset($_GET["edited"])) {
@@ -40,7 +40,7 @@ if (isset($_POST["item"])) {
 //   {
 //     $this->$id = $id;
 //     $this->$title = $title;
-//     
+//     //error_log("$insert_todoObject", 3, "./php_error.log");
 //   }
 // }
 // Post todo item method.
