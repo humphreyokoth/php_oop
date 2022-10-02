@@ -107,7 +107,7 @@ class ManageTodoList
     $conn = $dbobject->OpenCon();
     $sql = "SELECT * FROM to_do_list_items";
 
-    $result = $this->$conn->query($sql);
+    $result =  $this->conn->query($sql);
 
 
     if ($result->num_rows > 0) {
@@ -143,7 +143,7 @@ class ManageTodoList
     $sql = "UPDATE `to_do_list_items` (`title`,`date_added`) VALUES ('$id')";
 
     // Return results.
-    $result = $this->$conn->query($sql);
+    $result =  $this->conn->query($sql);
 
     // error_log(print_r($conn) , 3, "./php_error.log");
     if ($result) {
@@ -160,7 +160,7 @@ class ManageTodoList
     $dbobject = new DatabaseConnection;
     $conn = $dbobject->OpenCon();
     $sql = "DELETE FROM `to_do_list_items` WHERE id =$id ";
-    $result = $this->$conn->query($sql);
+    $result =  $this->conn->query($sql);
 
     if ($result) {
       echo "successfully deleted";
