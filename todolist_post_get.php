@@ -20,6 +20,11 @@ if (isset($_POST["item"])) {
   $insert_todoObject->insert_todo_item($_POST["item"]);
   
 } elseif (isset($_REQUEST["Retrieved"])) {
+  if (isset($_GET['delete'])) {
+$delele_item = $_GET['delete'];
+//SQL query for deletion.
+// $query1 = query("delete from id where id =$delete_item");
+}
   $get_todoObject->get_todo_list();
 } elseif (isset($_GET["edited"])) {
   $update_todoObject->update_todo_item($_POST["edited"]);
@@ -28,21 +33,7 @@ if (isset($_POST["item"])) {
 };
 
 
-// Class to doitem/
-// class TodoItem
-// {
 
-//   public $id;
-//   public $title;
-//   public $date_added;
-
-//   public function __construct($id, $title, $date_added)
-//   {
-//     $this->$id = $id;
-//     $this->$title = $title;
-//     //error_log("$insert_todoObject", 3, "./php_error.log");
-//   }
-// }
 // Post todo item method.
 class ManageTodoList
 {
@@ -157,8 +148,8 @@ class ManageTodoList
   }
   public function delete_todo_item($id)
   {
-    $dbobject = new DatabaseConnection;
-    $conn = $dbobject->OpenCon();
+    $this->dbobject = new DatabaseConnection;
+    $this->conn = $this->dbobject->OpenCon();
     $sql = "DELETE FROM `to_do_list_items` WHERE id =$id ";
     $result =  $this->conn->query($sql);
 
